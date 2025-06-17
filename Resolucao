@@ -1,0 +1,46 @@
+###Resolução do Desafio
+
+##1
+SELECT Nome, Ano FROM filmes.filmes;
+
+##2
+SELECT Nome, Ano, Duracao FROM filmes.filmes ORDER BY Ano;
+
+##3
+SELECT Nome, Ano, Duracao FROM filmes.filmes WHERE Nome = "de volta para o futuro";
+
+##4
+SELECT Nome, Ano, Duracao FROM filmes.filmes WHERE Ano = "1997";
+
+##5
+SELECT Nome, Ano, Duracao FROM filmes.filmes WHERE Ano > "2000";
+
+##6
+SELECT Nome, Ano, Duracao FROM filmes.filmes WHERE Duracao > 100 AND Duracao < 150 ORDER BY Duracao;
+
+##7
+SELECT Ano, count(Ano) AS Quantidade FROM filmes.filmes GROUP BY Ano ORDER BY sum(Duracao) DESC;
+
+##8
+SELECT Id, PrimeiroNome, UltimoNome, Genero FROM filmes.atores WHERE Genero = 'M';
+
+##9
+SELECT Id, PrimeiroNome, UltimoNome, Genero FROM filmes.atores WHERE Genero = 'F' ORDER BY PrimeiroNome;
+
+##10
+SELECT Nome, Genero FROM filmes.filmesgenero 
+INNER JOIN filmes.filmes ON filmes.filmes.id = filmes.filmesgenero.IdFilme
+INNER JOIN filmes.generos ON filmes.generos.Id= filmes.filmesgenero.IdGenero;
+
+##11
+SELECT Nome, Genero FROM filmes.filmesgenero 
+INNER JOIN filmes.filmes ON filmes.filmes.id = filmes.filmesgenero.IdFilme
+INNER JOIN filmes.generos ON filmes.generos.Id= filmes.filmesgenero.IdGenero WHERE Genero = "Mistério";
+
+##12
+SELECT Nome, PrimeiroNome, UltimoNome, Papel FROM filmes.elencofilme
+INNER JOIN filmes.filmes ON filmes.filmes.id = filmes.elencofilme.IdFilme
+INNER JOIN filmes.atores ON filmes.atores.Id = filmes.elencofilme.IdAtor;
+
+##Utilizado MySql 
+
